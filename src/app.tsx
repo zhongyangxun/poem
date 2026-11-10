@@ -20,7 +20,6 @@ export default function App() {
       try {
         const poem = await getSentence()
         await setTimeout(5000)
-        setLoading(false)
         setPoem({
           sentence: poem.content,
           title: poem.origin.title,
@@ -31,6 +30,8 @@ export default function App() {
         const errorMsg = err instanceof Error ? err.message : '未知错误'
         console.error('获取诗句失败:', errorMsg)
         setError(errorMsg)
+      } finally {
+        setLoading(false)
       }
     }
 

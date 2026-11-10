@@ -7,7 +7,9 @@ const getSentence = async () => {
     })
 
     if (!response.ok) {
-      throw new Error(`HTTP Error: ${response.status}`)
+      const body = await response.text()
+
+      throw new Error(`HTTP Error: ${response.status}: ${body}`)
     }
 
     const res = await response.json()
