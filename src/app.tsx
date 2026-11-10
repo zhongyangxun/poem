@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Text, Box, Newline } from 'ink'
 import getSentence from './api/getSentence.js'
-import 'dotenv/config'
 import { setTimeout } from 'node:timers/promises'
 
 type Poem = {
